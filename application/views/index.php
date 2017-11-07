@@ -7,7 +7,7 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('<?php echo base_url();?>assets/img/Ships_Tanker.jpg')">">
+          <div class="carousel-item active" style="background-image: url('<?php echo base_url();?>assets/img/Ships_Tanker.jpg')">
             <div class="carousel-caption d-none d-md-block">
               <h3>First Slide</h3>
               <p>This is a description for the first slide.</p>
@@ -38,5 +38,8 @@
         </a>
       </div>
 
-
-<h1>Welkom!</h1>
+<?php if(isset($_SESSION['logged in'])): ?>
+	<h1>Welkom terug, <?php echo $_SESSION['firstname']; ?>!</h1>
+<?php ; else : ?>
+	<h1>Welkom!</h1>
+<?php endif; ?>

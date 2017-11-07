@@ -27,7 +27,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+              <?php if(isset($_SESSION['logged_in'])): ?>
+              <a class="nav-link" href="<?php echo base_url(); ?>logout">Uitloggen</a>
+              <?php ; else: ?>
               <a class="nav-link" href="<?php echo base_url(); ?>login">Inloggen</a>
+            <?php endif; ?>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="services.html">Services</a>
