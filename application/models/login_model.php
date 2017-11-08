@@ -27,9 +27,6 @@
     		$_SESSION['employeeId'] = $employee['id'];
     		$_SESSION['firstname'] = $employee['firstname'];
     		$_SESSION['role_id'] = $employee['role_id'];
-
-    		//var_dump($_SESSION);
-    		//die();
     	}
     	else
     	{
