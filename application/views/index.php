@@ -38,7 +38,7 @@
         </a>
       </div>
 
-<?php if(isset($_SESSION['logged in'])): ?>
+<?php if(isset($_SESSION['logged_in'])): ?>
 	<h1>Welkom terug, <?php echo $_SESSION['firstname']; ?>!</h1>
 <?php ; else : ?>
 	<h1>Welkom!</h1>

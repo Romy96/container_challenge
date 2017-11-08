@@ -1,63 +1,43 @@
 <?php
-	class Login_model extends CI_Model{
+	class login_model extends CI_Model{
 
     function __construct()
     {
         parent::__construct();
         $this->load->database();
+        $this->load->library('session');
     }
 
-    function check_user()
+    function check_user($email = '', $password = '')
     {
     	$email = $this->input->post('email');
-    	$password = $this->input->post('password');
+    	$password = md5($this->input->post('password'));
 
     	$this->db->select();
     	$this->db->from('employees');
     	$this->db->where(array('email' => $email, 'password' => $password));
 
-    	$query1 = $this->db->get();
+    	$query = $this->db->get();
 
-    	if ($query1->num_rows() == 1)
+    	if ($query->num_rows() > 0)
     	{
-    		$row = $query1->row();
+    		$employee = $query->row_array();
 
-    		if(!empty($row)) 
-    		{
-    			$_SESSION['employeeId'] = $row['id'];
-    			$_SESSION['logged_in'] = true;
-    			$_SESSION['firstname'] = $row['firstname'];
-    		}
+    		$_SESSION['logged_in'] = TRUE;
+    		$_SESSION['employeeId'] = $employee['id'];
+    		$_SESSION['firstname'] = $employee['firstname'];
+    		$_SESSION['role_id'] = $employee['role_id'];
 
-    		/*$this->db->select('role_id');
-    		$this->db->from('employee_role');
-    		$this->db->where(array('employee_id' => $row['id']));
-
-    		$query2 = $this->db->get();
-    		$roles = $query2->result_array();
-
-	    	if(isset($roles))
-	    	{
-	    		foreach($roles as $role)
-	    		{
-	    			$role_id = $role['role_id'];
-
-	    			$this->db->select('role');
-	    			$this->db->from('roles');
-	    			$this->db->where(array('id' => $role_id));
-
-	    			$query3 = $this->db->get();
-	    			$rolename = $query3->result_array();
-
-	    			$_SESSION['role'] = $rolename[0]['role'];
-	    		}
-	    	}*/
+    		//var_dump($_SESSION);
+    		//die();
     	}
     	else
     	{
+    		die('failure!');
+
     		$_SESSION['employeeId'] = null;
     		$_SESSION['firstname'] = null;
-    		$_SESSION['role'] = null;
+    		$_SESSION['role_id'] = null;
     	}
     }
 
