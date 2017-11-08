@@ -54,3 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'login';
+
+$route['container_ships'] = 'container_ships';
+$route['container_ships/create'] = 'container_ships/create';
+$route['container_ships/edit/(:any)'] = 'container_ships/edit/$1';

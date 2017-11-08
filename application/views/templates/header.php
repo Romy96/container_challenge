@@ -15,6 +15,8 @@
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url(); ?>assets/css/modern-business.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 
   </head>
       <!-- Navigation -->
@@ -68,3 +70,13 @@
 
 
     <div class="container">
+
+      <?php 
+          if (isset($_SESSION['ERROR'])): 
+              echo '<div class="alert alert-danger" id="danger-alert" style="margin-top:50px; margin-bottom:-50px;">
+                      <button type="button" class="close" data-dismiss="alert">x</button>
+                      <strong>Error! </strong>
+                      '. $_SESSION['ERROR'] . '
+                  </div>'; 
+          endif;
+      ?> 

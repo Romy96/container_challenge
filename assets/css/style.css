@@ -1,0 +1,9 @@
+.table-responsive {
+     max-width: 100%;
+     overflow: scroll;
+}
+
+td 
+{
+	word-break: break-all;
+}
