@@ -58,3 +58,6 @@ $route['login'] = 'login';
 $route['container_ships'] = 'container_ships';
 $route['container_ships/create'] = 'container_ships/create';
 $route['container_ships/edit/(:any)'] = 'container_ships/edit/$1';
+
+$route['routes'] = 'routes';
+$route['routes/create_route'] = 'routes/create_route';

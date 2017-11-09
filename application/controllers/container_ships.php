@@ -25,7 +25,6 @@ class container_ships extends CI_controller
 			$this->session->set_flashdata('ERROR','U heeft geen toegang op deze pagina!');
             redirect('index', 'Refresh');
 		}
-
 	}
 
 	public function index()
