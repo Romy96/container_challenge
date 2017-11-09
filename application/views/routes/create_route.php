@@ -1,4 +1,4 @@
-<h1>Schip toevoegen</h1>
+<h1>Route toevoegen</h1>
 
 <?php echo form_open('routes/create_route') ?>
 	<?php echo validation_errors(); ?>

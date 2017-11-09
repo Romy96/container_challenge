@@ -47,4 +47,16 @@ class routes_model extends CI_model
 
     	$query = $this->db->insert('routes', $data);
     }
+
+    function create_port()
+    {
+    	$data = array(
+    		'name' => $this->input->post('name'),
+    		'adress' => $this->input->post('adress'),
+    		'country' => $this->input->post('country'),
+    		'phone_number' => $this->input->post('phone_number')
+    	);
+
+    	$query = $this->db->insert('ports', $data);
+    }
 }

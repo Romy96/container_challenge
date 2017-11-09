@@ -61,3 +61,4 @@ $route['container_ships/edit/(:any)'] = 'container_ships/edit/$1';
 
 $route['routes'] = 'routes';
 $route['routes/create_route'] = 'routes/create_route';
+$route['routes/create_port'] = 'routes/create_port';

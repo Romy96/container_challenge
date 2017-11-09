@@ -58,8 +58,27 @@ class routes extends CI_controller
 		}
 		else
 		{
-			//die('success');
 			$this->routes_model->create_route();
+			redirect('routes', 'Refresh');
+		}
+	}
+
+	public function create_port()
+	{
+		$this->form_validation->set_rules('name', 'name', 'Required');
+		$this->form_validation->set_rules('adress', 'adress', 'Required');
+		$this->form_validation->set_rules('country', 'country', 'Required');
+		$this->form_validation->set_rules('phone_number', 'phone_number', 'Required');
+
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('templates/header');
+			$this->load->view('routes/create_port');
+			$this->load->view('templates/footer');
+		}
+		else
+		{
+			$this->routes_model->create_port();
 			redirect('routes', 'Refresh');
 		}
 	}
